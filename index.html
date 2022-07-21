@@ -6,112 +6,246 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>BMI 計算機</title>
+    <title>網站後台儀表板</title>
 
     <link rel="stylesheet" href="../library/css/bootstrap.css">
     <script src="../library/js/jquery-2.2.4.js"></script>
     <script src="../library/js/bootstrap.js"></script>
 
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+    <!-- Custom CSS -->
+    <link href="sidebar.css" rel="stylesheet">
+
     <style>
-    .my-container{
-        padding-left: 0px;
-        padding-right: 0px;
+    .glyphicon {
+        margin-left: -20px;
+        top: 2px;
+        margin-right: 5px;
     }
-    .box {
-        padding-left: 40px;
-        padding-right: 40px;
-        padding-top: 20px;
+    .page-header {
+        margin: 0;
+        padding: 0;
+        margin-bottom: 15px;
     }
-    .button-box {
-        padding-top: 44.5px;
+    .breadcrumb {
+        margin-bottom: 0;
+    }
+    .table {
+        margin-bottom: 0;
+    }
+    #container {
+
     }
     </style>
+</head>
 
+<body>
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                        網站後台儀表板
+                    </a>
+                </li>
+                <li>
+                    <a href="#"><span class="glyphicon glyphicon-home"></span>主控台</a>
+                </li>
+                <li>
+                    <a href="#"><span class="glyphicon glyphicon-user"></span>使用者管理</a>
+                </li>
+                <li>
+                    <a href="#"><span class="glyphicon glyphicon-edit"></span>文章管理</a>
+                </li>
+                <li>
+                    <a href="#"><span class="glyphicon glyphicon-comment"></span>留言管理</a>
+                </li>
+                <li>
+                    <a href="#"><span class="glyphicon glyphicon-cog"></span>網站設定</a>
+                </li>
+                <li>
+                    <a href="#"><span class="glyphicon glyphicon-log-in"></span>登出</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- 頁面內容 -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <ol class="breadcrumb">
+                          <li><a href="#">Home</a></li>
+                          <li><a href="#">Library</a></li>
+                          <li class="active">Data</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="page-header">
+                            <h2><small>最近登入紀錄</small></h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>登入帳號</th>
+                                    <th>瀏覽器</th>
+                                    <th>IP</th>
+                                    <th>時間</th>
+                                    <th>Opr</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>001</td>
+                                    <th>admin</th>
+                                    <th>Chrome </th>
+                                    <th>192.168.1.1</th>
+                                    <th>2016-01-01 13:46</th>
+                                    <th>
+                                        <button class="btn btn-danger btn-xs">標示可疑</button>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>001</td>
+                                    <th>admin</th>
+                                    <th>Chrome </th>
+                                    <th>192.168.1.1</th>
+                                    <th>2016-01-01 13:46</th>
+                                    <th>
+                                        <button class="btn btn-danger btn-xs">標示可疑</button>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>001</td>
+                                    <th>admin</th>
+                                    <th>Chrome </th>
+                                    <th>192.168.1.1</th>
+                                    <th>2016-01-01 13:46</th>
+                                    <th>
+                                        <button class="btn btn-danger btn-xs">標示可疑</button>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>001</td>
+                                    <th>admin</th>
+                                    <th>Chrome </th>
+                                    <th>192.168.1.1</th>
+                                    <th>2016-01-01 13:46</th>
+                                    <th>
+                                        <button class="btn btn-danger btn-xs">標示可疑</button>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>001</td>
+                                    <th>admin</th>
+                                    <th>Chrome </th>
+                                    <th>192.168.1.1</th>
+                                    <th>2016-01-01 13:46</th>
+                                    <th>
+                                        <button class="btn btn-danger btn-xs">標示可疑</button>
+                                    </th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="page-header">
+                            <h2><small>近七天訪客流量</small></h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div id="container"></div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- Menu Toggle Script -->
     <script>
-    $(function(){
-        $('#calc').click(function(){
+    $(function () {
 
-            var h   = $('#height').val(),
-                w   = $('#weight').val();
+        // AJAX
+        // functioln(rep) {
 
-            if( h == '' ) {
-                alert('請輸入身高');
-            } else if( w == '' ) {
-                alert('請輸入體重');
-            } else if( h > 3 ) {
-                alert('身高請輸入公尺')
-            } else {
-                var bmi = w / ( h * h );
-                $('#result').val(formatFloat(bmi, 3));
-                $('#height').val('');
-                $('#weight').val('');
-            }
+        $('#container').highcharts({
+
+            title: {
+                text: '最近七天訪客流量',
+                x: -20 // 文字置中
+            },
+
+            subtitle: {
+                text: '網站後台儀表板',
+                x: -20
+            },
+
+            xAxis: {
+                categories: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+            },
+
+            yAxis: {
+                title: {
+                    text: '流量'
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+
+            tooltip: {
+                valueSuffix: '次'
+            },
+
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle',
+                borderWidth: 0
+            },
+
+            series: [
+            {
+                name: 'Page View',
+                data: [545, 544, 454, 445, 780, 311, 83]
+            },
+            {
+                name: '不重複瀏覽訪客',
+                data: [94, 234, 563, 743, 352, 435]
+            }]
 
         });
     });
-
-    function formatFloat(num, pos) {
-      var size = Math.pow(10, pos);
-      return Math.round(num * size) / size;
-    }
     </script>
 
-</head>
-<body>
-
-    <div class="container-fluid my-container">
-
-        <nav class="navbar navbar-default">
-          <div class="container-fluid">
-
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="#">BMI 計算機</a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <ul class="nav navbar-nav navbar-right">
-                <li><a href="http://hahow.in" target="_blank">About</a></li>
-              </ul>
-            </div><!-- /.navbar-collapse -->
-          </div><!-- /.container-fluid -->
-        </nav>
-
-        <div class="row">
-            <div class="col-md-4 box">
-                <div class="form-group">
-                   <label for="height">輸入身高(m)</label>
-                   <input type="number" class="form-control" id="height" placeholder="身高">
-                 </div>
-            </div>
-            <div class="col-md-4 box">
-                <div class="form-group">
-                   <label for="weight">輸入體重(kg)</label>
-                   <input type="number" class="form-control" id="weight" placeholder="體重">
-                 </div>
-            </div>
-            <div class="col-md-1 button-box">
-                <div class="form-group">
-                    <button type="button" id="calc" class="btn btn-default">計算</button>
-                </div>
-            </div>
-            <div class="col-md-3 box">
-
-                <div class="form-group">
-                   <label for="result">您的 BMI</label>
-                   <input type="number" class="form-control" id="result" readonly="true">
-                 </div>
-            </div>
-        </div>
-
-    </div>
-
 </body>
+
 </html>
